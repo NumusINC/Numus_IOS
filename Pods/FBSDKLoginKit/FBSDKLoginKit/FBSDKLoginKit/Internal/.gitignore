@@ -1,0 +1,16 @@
+/FBSDKDeviceLoginCodeInfo+Internal.h
+/FBSDKDeviceLoginManagerResult+Internal.h
+/FBSDKLoginCompletion+Internal.h
+/FBSDKLoginCompletion.h
+/FBSDKLoginCompletion.m
+/FBSDKLoginError.h
+/FBSDKLoginError.m
+/FBSDKLoginKit+Internal.h
+/FBSDKLoginManager+Internal.h
+/FBSDKLoginManagerLogger.h
+/FBSDKLoginManagerLogger.m
+/FBSDKLoginManagerLoginResult+Internal.h
+/FBSDKLoginUtility.h
+/FBSDKLoginUtility.m
+/_FBSDKLoginRecoveryAttempter.h
+/_FBSDKLoginRecoveryAttempter.m

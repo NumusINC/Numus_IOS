@@ -1,0 +1,17 @@
+/FBSDKAccessTokenCache.h
+/FBSDKAccessTokenCache.m
+/FBSDKAccessTokenCacheV3.h
+/FBSDKAccessTokenCacheV3.m
+/FBSDKAccessTokenCacheV3_17.h
+/FBSDKAccessTokenCacheV3_17.m
+/FBSDKAccessTokenCacheV3_21.h
+/FBSDKAccessTokenCacheV3_21.m
+/FBSDKAccessTokenCacheV4.h
+/FBSDKAccessTokenCacheV4.m
+/FBSDKAccessTokenCaching.h
+/FBSDKAccessTokenExpirer.h
+/FBSDKAccessTokenExpirer.m
+/FBSDKKeychainStore.h
+/FBSDKKeychainStore.m
+/FBSDKKeychainStoreViaBundleID.h
+/FBSDKKeychainStoreViaBundleID.m

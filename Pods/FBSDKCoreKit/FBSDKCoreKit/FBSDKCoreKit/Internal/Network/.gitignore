@@ -1,0 +1,12 @@
+/FBSDKGraphRequest+Internal.h
+/FBSDKGraphRequestBody.h
+/FBSDKGraphRequestBody.m
+/FBSDKGraphRequestConnection+Internal.h
+/FBSDKGraphRequestMetadata.h
+/FBSDKGraphRequestMetadata.m
+/FBSDKGraphRequestPiggybackManager.h
+/FBSDKGraphRequestPiggybackManager.m
+/FBSDKURLConnection.h
+/FBSDKURLConnection.m
+/FBSDKURLSessionTask.h
+/FBSDKURLSessionTask.m
