@@ -16,6 +16,7 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
     //ref = Database.database().reference()
     let testArray = ["$190","$800.00","$550.78","$678.67","-$67.89"]
     
+    @IBOutlet weak var tabla: UITableView!
     let testLabelsArray = ["Ciudad de México","La Habana","Londres","Munich","Washintog DC"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -18,6 +18,7 @@
 		69468B76218AA3EE00EE0CF7 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */; };
 		69468B78218AA41F00EE0CF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */; };
 		697E6DDB2188B3C60010D54D /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697E6DDA2188B3C60010D54D /* credentials.plist */; };
+		98D6932E219F84E9008F9F7C /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D6932D219F84E9008F9F7C /* SummaryViewController.swift */; };
 		AC773395E41D9A72AC45CBDD /* Pods_Numus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		697E6DDA2188B3C60010D54D /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		98D6932D219F84E9008F9F7C /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE96D11F92E52C067F2280B3 /* Pods-Numus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numus/Pods-Numus.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB3B6804E80BECF38E33B8A /* Pods-Numus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numus/Pods-Numus.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				69468B73218AA3AF00EE0CF7 /* SettingsViewController.swift */,
 				69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */,
 				69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */,
+				98D6932D219F84E9008F9F7C /* SummaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,12 +229,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Numus/Pods-Numus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -241,12 +248,16 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartsRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -311,6 +322,7 @@
 				6903806D216450120097EC00 /* AppDelegate.swift in Sources */,
 				6907C0B421796A6D005359C9 /* DashBoardModel.swift in Sources */,
 				69468B76218AA3EE00EE0CF7 /* ExpensesViewController.swift in Sources */,
+				98D6932E219F84E9008F9F7C /* SummaryViewController.swift in Sources */,
 				69468B74218AA3AF00EE0CF7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
