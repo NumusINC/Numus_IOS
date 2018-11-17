@@ -27,10 +27,8 @@ class SummaryViewController: UIViewController {
     func setChart(dataPoints: [String], values: [Double]){
         var dataEntries: [ChartDataEntry] = []
         
-        
-        
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: (values[i] * 100) / Double(budgee))
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
         
@@ -49,7 +47,6 @@ class SummaryViewController: UIViewController {
         pieChartDataSet.colors = colors
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        
         pieChart.data = pieChartData
     }
 
