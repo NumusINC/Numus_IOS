@@ -123,16 +123,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNb-9y-kJ8" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="65" width="374" height="406"/>
+                                <rect key="frame" x="20" y="65" width="374" height="727"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SQw-zF-x4u" firstAttribute="trailing" secondItem="oNb-9y-kJ8" secondAttribute="trailing" constant="20" id="EGa-lI-iZD"/>
-                            <constraint firstItem="SQw-zF-x4u" firstAttribute="bottom" secondItem="oNb-9y-kJ8" secondAttribute="bottom" constant="342" id="GKH-aT-TIW"/>
-                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="top" secondItem="SQw-zF-x4u" secondAttribute="top" constant="21" id="WNl-ST-hqD"/>
-                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="leading" secondItem="SQw-zF-x4u" secondAttribute="leading" constant="20" id="hv8-32-yxi"/>
+                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="centerX" secondItem="SQw-zF-x4u" secondAttribute="centerX" id="2xR-zQ-4Z3"/>
+                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="centerY" secondItem="SQw-zF-x4u" secondAttribute="centerY" id="3Vv-KU-5Ea"/>
+                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="top" secondItem="SQw-zF-x4u" secondAttribute="top" constant="21" id="o9l-NI-Qt9"/>
+                            <constraint firstItem="oNb-9y-kJ8" firstAttribute="leading" secondItem="dD5-AA-sSQ" secondAttribute="leadingMargin" id="qVJ-U6-DaZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SQw-zF-x4u"/>
                     </view>
@@ -280,8 +280,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dashboard" width="18" height="18"/>
-        <image name="gear" width="18" height="18"/>
+        <image name="dashboard" width="36" height="36"/>
+        <image name="gear" width="36" height="36"/>
         <image name="ic_account_circle.png" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
