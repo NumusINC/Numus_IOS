@@ -25,7 +25,7 @@ class SummaryViewController: UIViewController {
     }
     
     func setChart(dataPoints: [String], values: [Double]){
-        var dataEntries: [ChartDataEntry] = []
+        var dataEntries: [PieChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
             let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
@@ -47,7 +47,18 @@ class SummaryViewController: UIViewController {
         pieChartDataSet.colors = colors
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.multiplier = 1.0
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+    
+        
         pieChart.data = pieChartData
+        pieChart.animate(xAxisDuration: 2.0)
+        pieChart.centerText = "hola"
     }
 
     
