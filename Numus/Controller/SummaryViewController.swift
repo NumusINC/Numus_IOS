@@ -2,7 +2,7 @@
 //  SummaryViewController.swift
 //  Numus
 //
-//  Created by Antonio Rangel on 11/16/18.
+//  Created by Antonio Rangel & Andrés Andaluz  on 11/16/18.
 //  Copyright © 2018 itesm. All rights reserved.
 //
 
@@ -58,7 +58,8 @@ class SummaryViewController: UIViewController {
         
         pieChart.data = pieChartData
         pieChart.animate(xAxisDuration: 2.0)
-        pieChart.centerText = "hola"
+        pieChart.centerText = "Center Text"
+        pieChart.drawEntryLabelsEnabled = false
     }
 
     
