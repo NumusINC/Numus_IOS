@@ -17,6 +17,9 @@
 		69468B74218AA3AF00EE0CF7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69468B73218AA3AF00EE0CF7 /* SettingsViewController.swift */; };
 		69468B76218AA3EE00EE0CF7 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */; };
 		69468B78218AA41F00EE0CF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */; };
+		6970614921A65B1000F2DC8A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970614821A65B1000F2DC8A /* Token.swift */; };
+		6970614B21A6613D00F2DC8A /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970614A21A6613D00F2DC8A /* Wallet.swift */; };
+		6970614D21A66E2500F2DC8A /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970614C21A66E2500F2DC8A /* Expense.swift */; };
 		697E6DDB2188B3C60010D54D /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697E6DDA2188B3C60010D54D /* credentials.plist */; };
 		AC773395E41D9A72AC45CBDD /* Pods_Numus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		69468B73218AA3AF00EE0CF7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6970614821A65B1000F2DC8A /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		6970614A21A6613D00F2DC8A /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		6970614C21A66E2500F2DC8A /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		697E6DDA2188B3C60010D54D /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE96D11F92E52C067F2280B3 /* Pods-Numus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numus/Pods-Numus.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +114,10 @@
 		692E95E32176838D00AE8BB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6970614821A65B1000F2DC8A /* Token.swift */,
 				6907C0B321796A6D005359C9 /* DashBoardModel.swift */,
+				6970614A21A6613D00F2DC8A /* Wallet.swift */,
+				6970614C21A66E2500F2DC8A /* Expense.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,10 +315,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6970614B21A6613D00F2DC8A /* Wallet.swift in Sources */,
 				69468B78218AA41F00EE0CF7 /* ProfileViewController.swift in Sources */,
+				6970614921A65B1000F2DC8A /* Token.swift in Sources */,
 				6903806F216450120097EC00 /* ViewController.swift in Sources */,
 				6903806D216450120097EC00 /* AppDelegate.swift in Sources */,
 				6907C0B421796A6D005359C9 /* DashBoardModel.swift in Sources */,
+				6970614D21A66E2500F2DC8A /* Expense.swift in Sources */,
 				69468B76218AA3EE00EE0CF7 /* ExpensesViewController.swift in Sources */,
 				69468B74218AA3AF00EE0CF7 /* SettingsViewController.swift in Sources */,
 			);
@@ -461,6 +473,17 @@
 				CODE_SIGN_ENTITLEMENTS = Numus/Numus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V37ZCSQ26Y;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFacebookAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseGoogleAuthUI",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuthInterop\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+				);
 				INFOPLIST_FILE = Numus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,6 +504,17 @@
 				CODE_SIGN_ENTITLEMENTS = Numus/Numus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V37ZCSQ26Y;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseFacebookAuthUI",
+					"$(PODS_ROOT)/FirebaseUI/FirebaseGoogleAuthUI",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuthInterop\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+				);
 				INFOPLIST_FILE = Numus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
