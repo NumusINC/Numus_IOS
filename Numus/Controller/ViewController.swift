@@ -30,13 +30,12 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             
             //currentWallet.saveInFireBase()
             //currentWallet.delete()
+            let token = Token.init()
             
-            let expense = Expense.init(name: "Iphone", value: 32000, date: Date.init().timeIntervalSince1970, type: "otros", isIncome: false, walletKey: currentWallet.token)
+            let expense = Expense.init(name: "IPhone", value: 144000, date: Date.init().timeIntervalSince1970, type: "otros", isIncome: false, token: token.token(), walletKey: currentWallet.token)
             expense.saveInFireBase()
-            expense.value = 100
-            expense.saveInFireBase()
-            
-            
+            //expense.value = 100
+            //expense.saveInFireBase()
             
             
         }else{

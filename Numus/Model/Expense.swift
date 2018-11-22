@@ -19,12 +19,12 @@ class Expense {
     var isIncome: Bool
     var walletKey: String
     
-    init(name:String, value:Double, date:TimeInterval, type:String, isIncome:Bool, walletKey:String) {
+    init(name:String, value:Double, date:TimeInterval, type:String, isIncome:Bool, token:String, walletKey:String) {
         self.name = name
         self.value = value
         self.date = date
         self.type = type
-        self.token = Token.init().token()
+        self.token = token
         self.isIncome = isIncome
         self.walletKey = walletKey
     }

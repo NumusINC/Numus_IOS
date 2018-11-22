@@ -8,35 +8,36 @@
 
 import UIKit
 import Firebase
+import SwiftyJSON
 
 class ExpensesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     var ref: DatabaseReference!
-    //ref = Database.database().reference()
-    var testArray = ["$190","$800.00","$550.78","$678.67","-$67.89"]
     
-    var testLabelsArray = ["Ciudad de México","La Habana","Londres","Munich","Washintog DC"]
+    var objectArray = [Expense]()
+    
+    @IBOutlet weak var table: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return objectArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = testArray[indexPath.row]
+        let idx = indexPath.row
+        cell.textLabel?.text = objectArray[idx].name
         cell.textLabel?.textColor = UIColor.red
-        cell.detailTextLabel?.text = testLabelsArray[indexPath.row]
+        cell.detailTextLabel?.text = "$ \(String(format: "%.1f", objectArray[idx].value))"
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == .delete{
-            self.testArray.remove(at: indexPath.row)
-            self.testLabelsArray.remove(at: indexPath.row)
+            let expense = self.objectArray[indexPath.row]
+            expense.delete()
+            self.objectArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -48,9 +49,35 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        ref = Database.database().reference()
+        
+        // Get all the expenses
+        let userID = Auth.auth().currentUser!.uid
+        self.objectArray.removeAll()
+        ref.child("Users/\(userID)/expense").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let data = snapshot.value as? NSDictionary
+            for idx in data! {
+                let json = JSON(idx.value)
+                let expense = Expense.init(name: json["name"].stringValue,
+                                           value: json["value"].double!,
+                                           date: json["date"].double!,
+                                           type: json["type"].stringValue,
+                                           isIncome: json["isIncome"].bool!,
+                                           token: json["token"].stringValue,
+                                           walletKey: json["walletKey"].stringValue)
+                
+                self.objectArray.append(expense)
+                self.table.reloadData()
+            }
+            
+        }) { (error) in
+            let alert = UIAlertController(title: "Oops!", message: "Tenemos algunos problemas porfavor intente mas tarde", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            print(error.localizedDescription)
+        }
+        print(objectArray)
     }
     
-
 }
