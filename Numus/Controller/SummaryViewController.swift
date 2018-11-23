@@ -17,9 +17,26 @@ class SummaryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let dataEntryTest = [190, 800.00, 550.78, 678.67, 67.89]
-        let testLabelsArray = ["Ciudad de México","La Habana","Londres","Munich","Washintog DC"]
-        setChart(dataPoints: testLabelsArray, values: dataEntryTest)
+        let dataEntryTest = [190.01, 800.00, 550.78, 678.67, 67.89, 675.90, 543.89]
+        let testLabelsArray = ["PET","FOOD","TAXES","HEALTH","PAYROLL","SERVICES","GROCERIES"]
+        let percentages = percentage(arr: dataEntryTest)
+        setChart(dataPoints: testLabelsArray, values: percentages)
+    }
+    
+    func percentage(arr: [Double]) -> [Double] {
+        var res = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        var sum = 0.0
+        
+        for i in 0..<arr.count {
+            sum += arr[i]
+        }
+        
+        for i in 0..<arr.count {
+            let temp = (arr[i] * 100) / sum
+            res[i] = temp
+        }
+        
+        return res
     }
     
     func setChart(dataPoints: [String], values: [Double]){
@@ -52,12 +69,13 @@ class SummaryViewController: UIViewController {
         formatter.maximumFractionDigits = 2
         formatter.multiplier = 1.0
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter:formatter))
-    
         
         pieChart.data = pieChartData
         pieChart.animate(xAxisDuration: 2.0)
-        pieChart.centerText = "Center Text"
+        pieChart.holeColor = .gray
         pieChart.drawEntryLabelsEnabled = false
+        pieChart.legend.textColor = .white
+        
     }
 
     
