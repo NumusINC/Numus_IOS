@@ -72,7 +72,7 @@ class SummaryViewController: UIViewController {
         
         pieChart.data = pieChartData
         pieChart.animate(xAxisDuration: 2.0)
-        pieChart.holeColor = .gray
+        pieChart.holeColor = .darkGray
         pieChart.drawEntryLabelsEnabled = false
         pieChart.legend.textColor = .white
         
