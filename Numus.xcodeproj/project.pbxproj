@@ -22,6 +22,7 @@
 		6970614D21A66E2500F2DC8A /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970614C21A66E2500F2DC8A /* Expense.swift */; };
 		697E6DDB2188B3C60010D54D /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697E6DDA2188B3C60010D54D /* credentials.plist */; };
 		69FB60AC21A794470043A9B8 /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB60AB21A794470043A9B8 /* NewExpenseViewController.swift */; };
+		69FB60AE21A87CB40043A9B8 /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB60AD21A87CB40043A9B8 /* NewWalletViewController.swift */; };
 		AC773395E41D9A72AC45CBDD /* Pods_Numus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		6970614C21A66E2500F2DC8A /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		697E6DDA2188B3C60010D54D /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		69FB60AB21A794470043A9B8 /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
+		69FB60AD21A87CB40043A9B8 /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
 		9FB8C2E572A79D47E5DFB514 /* Pods_Numus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE96D11F92E52C067F2280B3 /* Pods-Numus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numus/Pods-Numus.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB3B6804E80BECF38E33B8A /* Pods-Numus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numus/Pods-Numus.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				69468B75218AA3EE00EE0CF7 /* ExpensesViewController.swift */,
 				69468B77218AA41F00EE0CF7 /* ProfileViewController.swift */,
 				69FB60AB21A794470043A9B8 /* NewExpenseViewController.swift */,
+				69FB60AD21A87CB40043A9B8 /* NewWalletViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				6970614B21A6613D00F2DC8A /* Wallet.swift in Sources */,
 				69468B78218AA41F00EE0CF7 /* ProfileViewController.swift in Sources */,
 				6970614921A65B1000F2DC8A /* Token.swift in Sources */,
+				69FB60AE21A87CB40043A9B8 /* NewWalletViewController.swift in Sources */,
 				6903806F216450120097EC00 /* ViewController.swift in Sources */,
 				6903806D216450120097EC00 /* AppDelegate.swift in Sources */,
 				6907C0B421796A6D005359C9 /* DashBoardModel.swift in Sources */,
