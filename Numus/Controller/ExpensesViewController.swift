@@ -14,7 +14,6 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     var ref: DatabaseReference!
-    
     var objectArray = [Expense]()
     
     @IBOutlet weak var table: UITableView!
@@ -26,8 +25,13 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let idx = indexPath.row
+        
         cell.textLabel?.text = objectArray[idx].name
-        cell.textLabel?.textColor = UIColor.red
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.textColor = UIColor.red
+        if objectArray[idx].isIncome {
+            cell.detailTextLabel?.textColor = UIColor.green
+        }
         cell.detailTextLabel?.text = "$ \(String(format: "%.1f", objectArray[idx].value))"
         return cell
         
@@ -75,6 +79,7 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         }) { (error) in
             let alert = UIAlertController(title: "Oops!", message: "Tenemos algunos problemas porfavor intente mas tarde", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             print(error.localizedDescription)
         }
         print(objectArray)

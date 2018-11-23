@@ -19,14 +19,16 @@ class Wallet {
     var token: String
     var balance: Double
     
-    init(budget: Double, target: Double, startDate: TimeInterval, endDate:TimeInterval, name:String, balance: Double) {
+    init(budget: Double, target: Double, startDate: TimeInterval, endDate:TimeInterval, name:String, token: String) {
+        
         self.budget = budget
         self.target = target
         self.startDate = startDate
         self.endDate = endDate
         self.name = name
-        self.token = Token.init().token()
-        self.balance = balance
+        self.token = token
+        self.balance =  (budget - target) / ((endDate - startDate) / (1000*60*60*24))
+        
     }
     
     func delete() {
