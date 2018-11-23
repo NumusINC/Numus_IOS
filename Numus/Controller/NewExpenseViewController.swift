@@ -86,22 +86,36 @@ class NewExpenseViewController: UIViewController, UIPickerViewDataSource, UIPick
             newExpense.saveInFireBase()
             
             
-            ref.child("Users/\(userID)/wallet/\(currentWallet)").observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("Users/\(userID!)/wallet/\(currentWallet!)").observeSingleEvent(of: .value, with: { (snapshot) in
+                
                 // Get user value
                 let data = snapshot.value
+                let walletJson = JSON(data)
                 
-                print(data)
+                if walletJson["target"].double! < newExpense.value{
+                    // The expense is bigger that the budgee so need to be modify
+                    
+                }else{
+                    
+                    let newBudget = walletJson["budget"].double! - newExpense.value
+                    let wallet = Wallet.init(budget: newBudget,
+                                             target: walletJson["target"].double!,
+                                             startDate: walletJson["startDate"].double!,
+                                             endDate: walletJson["endDate"].double!,
+                                             name: walletJson["name"].stringValue,
+                                             token: walletJson["token"].stringValue)
+                    wallet.saveInFireBase()
+                    
+                    let alert = UIAlertController(title: "Aviso", message: "Tu expesne se a guardado con exito", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 
-                
-                let alert = UIAlertController(title: "Aviso", message: "Tu expesne se a guardado con exito", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                
+                }
                 
             }) { (error) in
                 let alert = UIAlertController(title: "Oops!", message: "Tenemos algunos problemas porfavor intente mas tarde", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
+                self.present(alert, animated: true, completion: nil)
                 print(error.localizedDescription)
             }
             
@@ -115,9 +129,7 @@ class NewExpenseViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
-        
         dateTextField.text = dateFormatter.string(from: datePicker.date)
-        
         
     }
     
