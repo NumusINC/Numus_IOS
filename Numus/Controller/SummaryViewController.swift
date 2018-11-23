@@ -12,8 +12,6 @@ import Charts
 class SummaryViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
-    var budgee = 8000
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
