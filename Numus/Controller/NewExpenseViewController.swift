@@ -17,6 +17,7 @@ class NewExpenseViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var isIncome: UISwitch!
     
     
     var datePicker: UIDatePicker?
@@ -81,9 +82,17 @@ class NewExpenseViewController: UIViewController, UIPickerViewDataSource, UIPick
             
             let token = Token.init()
             let currentWallet = UserDefaults.standard.string(forKey: "currentWallet")
+            
+            var income = false
+            
+            if self.isIncome.isOn{
+                income = true
+            }
         
-            let newExpense = Expense.init(name: name, value: Double(value)!, date: timeDate!, type: category, isIncome: false, token: token.token(), walletKey: currentWallet!)
+            let newExpense = Expense.init(name: name, value: Double(value)!, date: timeDate!, type: category, isIncome: income, token: token.token(), walletKey: currentWallet!)
             newExpense.saveInFireBase()
+            
+            
             
             
             ref.child("Users/\(userID!)/wallet/\(currentWallet!)").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -92,25 +101,25 @@ class NewExpenseViewController: UIViewController, UIPickerViewDataSource, UIPick
                 let data = snapshot.value
                 let walletJson = JSON(data)
                 
-                if walletJson["target"].double! < newExpense.value{
-                    // The expense is bigger that the budgee so need to be modify
-                    
-                }else{
-                    
-                    let newBudget = walletJson["budget"].double! - newExpense.value
-                    let wallet = Wallet.init(budget: newBudget,
-                                             target: walletJson["target"].double!,
-                                             startDate: walletJson["startDate"].double!,
-                                             endDate: walletJson["endDate"].double!,
-                                             name: walletJson["name"].stringValue,
-                                             token: walletJson["token"].stringValue)
-                    wallet.saveInFireBase()
-                    
-                    let alert = UIAlertController(title: "Aviso", message: "Tu expesne se a guardado con exito", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                let newBudget = walletJson["budget"].double! - newExpense.value
+                let wallet = Wallet.init(budget: newBudget,
+                                         target: walletJson["target"].double!,
+                                         startDate: walletJson["startDate"].double!,
+                                         endDate: walletJson["endDate"].double!,
+                                         name: walletJson["name"].stringValue,
+                                         token: walletJson["token"].stringValue)
                 
-                }
+                wallet.saveInFireBase()
+                
+                let alert = UIAlertController(title: "Aviso", message: "Expense guardado", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                self.dateTextField.text = ""
+                self.categoryTextFiel.text = ""
+                self.valueTextField.text = ""
+                self.nameTextField.text = ""
+                
                 
             }) { (error) in
                 let alert = UIAlertController(title: "Oops!", message: "Tenemos algunos problemas porfavor intente mas tarde", preferredStyle: .alert)

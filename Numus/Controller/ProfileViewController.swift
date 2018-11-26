@@ -44,8 +44,15 @@ class ProfileViewController: UIViewController,  UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let idx = indexPath.row
         cell.textLabel?.text = objectArray[idx].name
-        //cell.detailTextLabel?.textColor = UIColor.red
+        
         cell.detailTextLabel?.text = "$ \(String(format: "%.1f", objectArray[idx].target))"
+        
+        if objectArray[idx].target < 0 {
+            cell.detailTextLabel?.textColor = UIColor.red
+        }else{
+            cell.detailTextLabel?.textColor = UIColor.green
+        }
+        
         return cell
     }
     

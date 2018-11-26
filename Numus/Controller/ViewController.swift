@@ -26,13 +26,13 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             
             
             //save wallet in memory
-            let token = Token.init()
+            /*let token = Token.init()
             let currentWallet = Wallet.init(budget: 5000, target: 100, startDate: Date.init().timeIntervalSince1970, endDate: Date.init().timeIntervalSince1970, name: "IOS wallet", token: token.token())
             currentWallet.saveInFireBase()
             
             //Save in memory
             let defaults = UserDefaults.standard
-            defaults.set(currentWallet.token, forKey: "currentWallet")
+            defaults.set(currentWallet.token, forKey: "currentWallet")*/
             
             //currentWallet.delete()
             //let expense = Expense.init(name: "IPhone", value: 144000, date: Date.init().timeIntervalSince1970, type: "otros", isIncome: false, token: token.token(), walletKey: currentWallet.token)
@@ -45,7 +45,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             let alert = UIAlertController(title: "Oops!", message: "Tuvimos algunos problemas con el login, intentalo de nuevo", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            print("No se pudo logear el usuario")
+            print("No se pudo iniciar session, trata de nuevo en un momento")
         }
         
     }

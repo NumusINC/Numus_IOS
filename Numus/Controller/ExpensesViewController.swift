@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftyJSON
+import Charts
 
 class ExpensesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -16,7 +17,12 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
     var ref: DatabaseReference!
     var objectArray = [Expense]()
     
+    var chart = PieChartDataEntry(value:0)
+    var numberOfDownloadsDataEntries = [PieChartDataEntry]()
+    
+    
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var pieChart: PieChartView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objectArray.count
@@ -32,7 +38,7 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         if objectArray[idx].isIncome {
             cell.detailTextLabel?.textColor = UIColor.green
         }
-        cell.detailTextLabel?.text = "$ \(String(format: "%.1f", objectArray[idx].value))"
+        cell.detailTextLabel?.text = "$ \(String(format: "%.1f", objectArray[idx].value))0"
         return cell
         
     }
@@ -50,7 +56,12 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         return 1
     }
     
-
+    func updateChart() {
+        let chartDataSet = PieChartDataSet(values: numberOfDownloadsDataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -62,6 +73,12 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         ref.child("Users/\(userID)/expense").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let data = snapshot.value as? NSDictionary
+            
+            //avoid null
+            if data == nil{
+                return
+            }
+            
             for idx in data! {
                 let json = JSON(idx.value)
                 let expense = Expense.init(name: json["name"].stringValue,
@@ -74,6 +91,9 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 self.objectArray.append(expense)
                 self.table.reloadData()
+                
+                //numberOfDownloadsDataEntries.append(expense.type)
+                
             }
             
         }) { (error) in
@@ -82,7 +102,7 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
             self.present(alert, animated: true, completion: nil)
             print(error.localizedDescription)
         }
-        print(objectArray)
+        
     }
     
 }

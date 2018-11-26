@@ -13,6 +13,7 @@ target 'Numus' do
   pod 'FirebaseUI/Google'
   pod 'FirebaseUI/Facebook'
   pod 'Firebase/Database'
+  pod 'Charts'
 
 end
 
