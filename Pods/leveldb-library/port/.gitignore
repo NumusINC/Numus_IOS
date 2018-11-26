@@ -1,7 +1,0 @@
-/atomic_pointer.h
-/port.h
-/port_example.h
-/port_posix.cc
-/port_posix.h
-/port_posix_sse.cc
-/thread_annotations.h

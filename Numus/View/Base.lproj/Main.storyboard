@@ -119,6 +119,37 @@
             </objects>
             <point key="canvasLocation" x="1094" y="674"/>
         </scene>
+        <!--Summary View Controller-->
+        <scene sceneID="BRQ-XH-aaK">
+            <objects>
+                <viewController id="FS8-es-wBS" customClass="SummaryViewController" customModule="Numus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nWP-vr-gWr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sT-xt-pIq" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7sT-xt-pIq" firstAttribute="leading" secondItem="n2c-3c-5GP" secondAttribute="leading" id="3ge-9E-Nzi"/>
+                            <constraint firstItem="7sT-xt-pIq" firstAttribute="top" secondItem="n2c-3c-5GP" secondAttribute="top" id="L7F-pM-s0t"/>
+                            <constraint firstItem="n2c-3c-5GP" firstAttribute="trailing" secondItem="7sT-xt-pIq" secondAttribute="trailing" id="MR3-NZ-jEx"/>
+                            <constraint firstItem="n2c-3c-5GP" firstAttribute="bottom" secondItem="7sT-xt-pIq" secondAttribute="bottom" id="q4R-BF-iQL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n2c-3c-5GP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="mVy-rH-eFG"/>
+                    <connections>
+                        <outlet property="pieChart" destination="7sT-xt-pIq" id="LvE-2a-7K5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMr-EL-jNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1970" y="-133"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="xzG-pW-PBd">
             <objects>
@@ -215,22 +246,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3p-Nf-xUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-338" y="-133"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="crt-3w-uaS">
-            <objects>
-                <viewController id="b9i-HP-VfW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0dX-CF-1w1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <viewLayoutGuide key="safeArea" id="rzh-Qk-cvm"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" selectedImage="gear" id="YVy-7V-YPh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5js-x0-zun" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1896" y="-74"/>
         </scene>
         <!--New Expense View Controller-->
         <scene sceneID="Uum-m2-IhI">
@@ -477,6 +492,7 @@
                         <segue destination="Xep-rk-vEW" kind="relationship" relationship="viewControllers" id="uXu-ma-a8b"/>
                         <segue destination="Awm-KZ-cVh" kind="relationship" relationship="viewControllers" id="8hv-NL-DBC"/>
                         <segue destination="3uD-ak-JaA" kind="relationship" relationship="viewControllers" id="4T8-7b-Ltf"/>
+                        <segue destination="FS8-es-wBS" kind="relationship" relationship="viewControllers" id="fXy-TN-5cn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2Q-nD-SPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,10 +523,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dashboard" width="36" height="36"/>
-        <image name="gear" width="36" height="36"/>
+        <image name="dashboard" width="18" height="18"/>
         <image name="ic_account_circle.png" width="60" height="60"/>
         <image name="success.png" width="28" height="28"/>
-        <image name="userprofile" width="96" height="96"/>
+        <image name="userprofile" width="48" height="48"/>
     </resources>
 </document>
